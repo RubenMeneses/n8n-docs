@@ -81,3 +81,8 @@ Use this option to retry the node after a failed attempt.
 1. Set **Max Tries** to the maximum number of times n8n should retry the node.
 1. Set **Wait Between Tries (ms)** to the desired delay in milliseconds between retries. For example, to wait one second before retrying the request again, set **Wait Between Tries (ms)** to `1000`.
 
+## Problem: Proxy Option Not Working in n8n HTTP Request Node for HTTPS requests
+When using the HTTP Request node in n8n, the proxy option does not work for HTTPS requests.
+
+This is because n8n uses the axios library which changed how HTTPS proxies are handled in newer versions (especially axios v1+). Because of this, setting the proxy option for HTTPS requests has no effect—HTTPS requests do not go through the specified proxy.
+
